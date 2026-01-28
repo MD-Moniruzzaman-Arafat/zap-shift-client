@@ -7,7 +7,7 @@ export default function Footer() {
         <aside className="text-center lg:w-3xl">
           <p className="flex items-center text-xl font-bold">
             <img src={logo} alt="" />
-            <p>ZapShift</p>
+            <span>ZapShift</span>
           </p>
           <p>
             Enjoy fast, reliable parcel delivery with real-time tracking and

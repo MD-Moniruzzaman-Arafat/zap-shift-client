@@ -29,7 +29,13 @@ export default function Brands() {
         </div>
         <div className="border-b border-gray-300 my-10 border-dashed"></div>
         <div>
-          <div className="stats stats-vertical md:stats-horizontal shadow p-5 my-2">
+          <div
+            data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="500"
+            className="stats stats-vertical md:stats-horizontal shadow p-5 my-2"
+          >
             <div className="stat">
               <img src={liveTracking} alt="Live Tracking" />
             </div>
@@ -43,7 +49,12 @@ export default function Brands() {
               </p>
             </div>
           </div>
-          <div className="stats stats-vertical md:stats-horizontal shadow p-5 my-2">
+          <div
+            data-aos="fade-right"
+            data-aos-offset="300"
+            data-aos-easing="ease-in-sine"
+            className="stats stats-vertical md:stats-horizontal shadow p-5 my-2"
+          >
             <div className="stat">
               <img src={safeDelivery} alt="Live Tracking" />
             </div>
@@ -57,7 +68,13 @@ export default function Brands() {
               </p>
             </div>
           </div>
-          <div className="stats stats-vertical md:stats-horizontal shadow p-5 my-2">
+          <div
+            data-aos="fade-left"
+            data-aos-anchor="#example-anchor"
+            data-aos-offset="500"
+            data-aos-duration="500"
+            className="stats stats-vertical md:stats-horizontal shadow p-5 my-2"
+          >
             <div className="stat">
               <img src={safeDelivery} alt="Live Tracking" />
             </div>

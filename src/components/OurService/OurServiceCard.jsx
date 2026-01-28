@@ -4,6 +4,9 @@ export default function OurServiceCard({ title, description, bg }) {
   return (
     <>
       <div
+        data-aos="flip-left"
+        data-aos-easing="ease-out-cubic"
+        data-aos-duration="2000"
         className={`  text-center p-10 rounded-2xl flex flex-col items-center gap-3 ${bg ? `bg-[${bg}]` : 'bg-white'}`}
       >
         <img
