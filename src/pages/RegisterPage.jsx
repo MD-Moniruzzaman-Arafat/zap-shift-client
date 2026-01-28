@@ -1,7 +1,7 @@
 import { Link } from 'react-router';
 import authImg from '../assets/authImage.png';
 
-export default function LoginPage() {
+export default function RegisterPage() {
   return (
     <>
       <div className="container mx-auto">
@@ -9,12 +9,15 @@ export default function LoginPage() {
           <div className="flex items-center justify-center bg-[#FFFFFF] flex-1">
             <div className="">
               <div className="mb-5">
-                <h1 className="font-extrabold text-5xl">Welcome Back</h1>
-                <p>Login with ZapShift</p>
+                <h1 className="font-extrabold text-5xl">Create an Account</h1>
+                <p>Register with ZapShift</p>
               </div>
               <div className="">
                 <fieldset className="fieldset w-xs p-5 lg:p-0">
                   <div className="fieldset">
+                    <label className="label">Name</label>
+                    <input type="text" className="input" placeholder="Name" />
+
                     <label className="label">Email</label>
                     <input type="email" className="input" placeholder="Email" />
 
@@ -24,21 +27,19 @@ export default function LoginPage() {
                       className="input"
                       placeholder="Password"
                     />
-                    <div>
-                      <a className="link link-hover">Forgot password?</a>
-                    </div>
-                    <button className="btn  bg-[#CAEB66] mt-2">Login</button>
+
+                    <button className="btn  bg-[#CAEB66] mt-2">Register</button>
                   </div>
 
                   <div>
                     <span>
                       Don’t have any account?
                       <Link
-                        to={'/register'}
+                        to={'/login'}
                         className="link link-hover text-[#8FA748]"
                       >
                         {' '}
-                        Register
+                        Login
                       </Link>
                     </span>
                   </div>
