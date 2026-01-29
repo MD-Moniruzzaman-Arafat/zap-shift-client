@@ -1,7 +1,11 @@
 import { Link } from 'react-router';
 import authImg from '../assets/authImage.png';
+import RegisterForm from '../components/RegisterForm/RegisterForm';
+import useAuth from '../hooks/useAuth';
 
 export default function RegisterPage() {
+  const { user } = useAuth();
+  console.log('Registered User:', user);
   return (
     <>
       <div className="container mx-auto">
@@ -14,22 +18,7 @@ export default function RegisterPage() {
               </div>
               <div className="">
                 <fieldset className="fieldset w-xs p-5 lg:p-0">
-                  <div className="fieldset">
-                    <label className="label">Name</label>
-                    <input type="text" className="input" placeholder="Name" />
-
-                    <label className="label">Email</label>
-                    <input type="email" className="input" placeholder="Email" />
-
-                    <label className="label">Password</label>
-                    <input
-                      type="password"
-                      className="input"
-                      placeholder="Password"
-                    />
-
-                    <button className="btn  bg-[#CAEB66] mt-2">Register</button>
-                  </div>
+                  <RegisterForm />
 
                   <div>
                     <span>

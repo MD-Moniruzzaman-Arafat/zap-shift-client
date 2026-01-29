@@ -1,5 +1,6 @@
 import { Link } from 'react-router';
 import authImg from '../assets/authImage.png';
+import LoginForm from '../components/LoginForm/LoginForm';
 
 export default function LoginPage() {
   return (
@@ -14,21 +15,7 @@ export default function LoginPage() {
               </div>
               <div className="">
                 <fieldset className="fieldset w-xs p-5 lg:p-0">
-                  <div className="fieldset">
-                    <label className="label">Email</label>
-                    <input type="email" className="input" placeholder="Email" />
-
-                    <label className="label">Password</label>
-                    <input
-                      type="password"
-                      className="input"
-                      placeholder="Password"
-                    />
-                    <div>
-                      <a className="link link-hover">Forgot password?</a>
-                    </div>
-                    <button className="btn  bg-[#CAEB66] mt-2">Login</button>
-                  </div>
+                  <LoginForm />
 
                   <div>
                     <span>
