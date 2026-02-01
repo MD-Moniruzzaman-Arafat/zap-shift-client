@@ -3,6 +3,7 @@ import Root from '../Layout/Root';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
+import PricingPage from '../pages/PricingPage';
 import RegisterPage from '../pages/RegisterPage';
 import ServicePage from '../pages/ServicePage';
 import PrivateRoute from './PrivateRoute';
@@ -34,7 +35,7 @@ export let router = createBrowserRouter([
       },
       {
         path: '/pricing',
-        element: <div>Pricing Page</div>,
+        element: <PricingPage />,
       },
       {
         path: '/be-a-rider',

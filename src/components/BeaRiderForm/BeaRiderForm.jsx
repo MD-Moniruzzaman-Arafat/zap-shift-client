@@ -33,7 +33,7 @@ export default function BeaRiderForm() {
                 <p className="text-red-500">{errors.name.message}</p>
               )} */}
         <label className="label">Your Region</label>
-        <select defaultValue="Pick a color" className="select w-full">
+        <select defaultValue="Select your Region" className="select w-full">
           <option disabled={true}>Select your Region</option>
           <option>Crimson</option>
           <option>Amber</option>
@@ -43,7 +43,7 @@ export default function BeaRiderForm() {
                 <p className="text-red-500">{errors.name.message}</p>
               )} */}
         <label className="label">Your District</label>
-        <select defaultValue="Pick a color" className="select w-full">
+        <select defaultValue="Select your District" className="select w-full">
           <option disabled={true}>Select your District</option>
           <option>Crimson</option>
           <option>Amber</option>
