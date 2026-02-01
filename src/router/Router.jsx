@@ -1,5 +1,6 @@
 import { createBrowserRouter } from 'react-router';
 import Root from '../Layout/Root';
+import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
@@ -31,7 +32,7 @@ export let router = createBrowserRouter([
       },
       {
         path: '/about-us',
-        element: <div>About Us Page</div>,
+        element: <AboutUsPage />,
       },
       {
         path: '/pricing',
