@@ -1,26 +1,51 @@
-import { Link } from 'react-router';
+import { NavLink } from 'react-router';
 
 export default function Menu() {
   return (
     <>
       <li>
-        <Link to="/service">Services</Link>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/service"
+        >
+          Services
+        </NavLink>
       </li>
 
       <li>
-        <a>Coverage</a>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/coverage"
+        >
+          Coverage
+        </NavLink>
       </li>
 
       <li>
-        <a>About Us</a>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/about-us"
+        >
+          About Us
+        </NavLink>
       </li>
 
       <li>
-        <a>Pricing</a>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/pricing"
+        >
+          Pricing
+        </NavLink>
       </li>
 
       <li>
-        <a>Be a Rider</a>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/be-a-rider"
+        >
+          Be a Rider
+        </NavLink>
       </li>
     </>
   );

@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import logo from '../../assets/logo.png';
 import Menu from './Menu';
 
@@ -31,10 +32,10 @@ export default function Navbar() {
               <Menu />
             </ul>
           </div>
-          <a className="btn btn-ghost text-xl font-bold">
+          <Link to="/" className="flex items-center text-xl font-bold">
             <img src={logo} alt="" />
             <p>ZapShift</p>
-          </a>
+          </Link>
         </div>
         <div className="navbar-center hidden lg:flex">
           <ul className="menu menu-horizontal px-1">
