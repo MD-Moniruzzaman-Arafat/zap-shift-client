@@ -1,8 +1,10 @@
+import { Link } from 'react-router';
+
 export default function Menu() {
   return (
     <>
       <li>
-        <a>Services</a>
+        <Link to="/service">Services</Link>
       </li>
 
       <li>

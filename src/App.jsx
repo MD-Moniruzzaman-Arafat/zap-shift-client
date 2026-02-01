@@ -1,18 +1,15 @@
-import { Outlet } from 'react-router';
+import { RouterProvider } from 'react-router';
 import './App.css';
-import Footer from './components/Footer/Footer';
-import Navbar from './components/Navbar/Navbar';
+import Loading from './components/Loading/Loading';
+import useAuth from './hooks/useAuth';
+import { router } from './router/Router';
 
 function App() {
-  return (
-    <>
-      <div className="container mx-auto ">
-        <Navbar />
-        <Outlet />
-        <Footer />
-      </div>
-    </>
-  );
+  const { loading } = useAuth();
+  if (loading) {
+    return <Loading />;
+  }
+  return <RouterProvider router={router} />;
 }
 
 export default App;

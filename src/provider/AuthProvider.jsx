@@ -5,7 +5,6 @@ import {
 } from 'firebase/auth';
 import { useEffect, useState } from 'react';
 import auth from '../../firebase.config';
-import Loading from '../components/Loading/Loading';
 import { AuthContext } from '../context';
 
 export default function AuthProvider({ children }) {
@@ -24,11 +23,8 @@ export default function AuthProvider({ children }) {
     const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
         setUser(currentUser);
-        setLoading(false);
-      } else {
-        setUser(null);
-        setLoading(false);
       }
+      setLoading(false);
     });
     return unsubscribe;
   }, []);
@@ -40,9 +36,7 @@ export default function AuthProvider({ children }) {
     signInEmailPassword,
     createUserEmailPassword,
   };
-  if (loading) {
-    return <Loading />;
-  }
+
   return (
     <>
       <AuthContext.Provider value={authInfo}>{children}</AuthContext.Provider>
