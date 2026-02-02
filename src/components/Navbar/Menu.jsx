@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router';
 
 export default function Menu() {
   return (
@@ -47,6 +47,20 @@ export default function Menu() {
           Be a Rider
         </NavLink>
       </li>
+      <div className="gap-2 lg:hidden flex py-5">
+        <Link
+          to={'/login'}
+          className="btn rounded-xl px-5 py-0 text-xs font-light"
+        >
+          Sign In
+        </Link>
+        <Link
+          to={'/register'}
+          className="btn rounded-xl px-5 bg-[#CAEB66] text-black py-0 text-xs font-light"
+        >
+          Sign Up
+        </Link>
+      </div>
     </>
   );
 }

@@ -2,6 +2,7 @@ import { createBrowserRouter } from 'react-router';
 import Root from '../Layout/Root';
 import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
+import CoveragePage from '../pages/CoveragePage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import PricingPage from '../pages/PricingPage';
@@ -28,7 +29,7 @@ export let router = createBrowserRouter([
       },
       {
         path: '/coverage',
-        element: <div>Coverage Page</div>,
+        element: <CoveragePage />,
       },
       {
         path: '/about-us',

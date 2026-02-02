@@ -43,10 +43,15 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end gap-2 hidden lg:flex">
-          <button className="btn rounded-xl px-5">Sign In</button>
-          <button className="btn rounded-xl px-5 bg-[#CAEB66] text-black">
-            Be a rider
-          </button>
+          <Link to={'/login'} className="btn rounded-xl px-5">
+            Sign In
+          </Link>
+          <Link
+            to={'/register'}
+            className="btn rounded-xl px-5 bg-[#CAEB66] text-black"
+          >
+            Sign Up
+          </Link>
         </div>
       </div>
     </>
