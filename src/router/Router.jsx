@@ -7,6 +7,7 @@ import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import PricingPage from '../pages/PricingPage';
 import RegisterPage from '../pages/RegisterPage';
+import SendParcelPage from '../pages/SendParcelPage';
 import ServicePage from '../pages/ServicePage';
 import PrivateRoute from './PrivateRoute';
 
@@ -42,6 +43,14 @@ export let router = createBrowserRouter([
       {
         path: '/be-a-rider',
         element: <BeaRiderPage />,
+      },
+      {
+        path: '/send-parcel',
+        element: (
+          <PrivateRoute>
+            <SendParcelPage />
+          </PrivateRoute>
+        ),
       },
     ],
   },

@@ -1,8 +1,10 @@
 import { Link } from 'react-router';
 import logo from '../../assets/logo.png';
+import useAuth from '../../hooks/useAuth';
 import Menu from './Menu';
 
 export default function Navbar() {
+  const { user } = useAuth();
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm rounded-2xl">
@@ -42,16 +44,54 @@ export default function Navbar() {
             <Menu />
           </ul>
         </div>
-        <div className="navbar-end gap-2 hidden lg:flex">
-          <Link to={'/login'} className="btn rounded-xl px-5">
-            Sign In
-          </Link>
-          <Link
-            to={'/register'}
-            className="btn rounded-xl px-5 bg-[#CAEB66] text-black"
-          >
-            Sign Up
-          </Link>
+        <div className="navbar-end gap-2 ">
+          {user.email ? (
+            <div className="dropdown dropdown-end">
+              <div
+                tabIndex={0}
+                role="button"
+                className="btn btn-ghost btn-circle avatar"
+              >
+                <div className="w-10 rounded-full">
+                  <img
+                    alt="Tailwind CSS Navbar component"
+                    src="https://img.daisyui.com/images/stock/photo-1534528741775-53994a69daeb.webp"
+                  />
+                </div>
+              </div>
+              <ul
+                tabIndex="-1"
+                className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"
+              >
+                <li>
+                  <a className="justify-between">
+                    Profile
+                    <span className="badge">New</span>
+                  </a>
+                </li>
+                <li>
+                  <a>Settings</a>
+                </li>
+                <li>
+                  <a>Logout</a>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <div hidden lg:flex>
+                <Link to={'/login'} className="btn rounded-xl px-5">
+                  Sign In
+                </Link>
+                <Link
+                  to={'/register'}
+                  className="btn rounded-xl px-5 bg-[#CAEB66] text-black"
+                >
+                  Sign Up
+                </Link>
+              </div>
+            </>
+          )}
         </div>
       </div>
     </>
