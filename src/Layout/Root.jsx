@@ -5,7 +5,7 @@ import Navbar from '../components/Navbar/Navbar';
 export default function Root() {
   return (
     <>
-      <div className="container mx-auto ">
+      <div className="container mx-auto py-5">
         <Navbar />
         <Outlet />
         <Footer />

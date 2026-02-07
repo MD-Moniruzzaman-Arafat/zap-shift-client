@@ -58,6 +58,16 @@ export default function Menu() {
           Send Parcel
         </NavLink>
       </li>
+
+      <li>
+        <NavLink
+          className={({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}
+          to="/dash-board"
+        >
+          DashBoard
+        </NavLink>
+      </li>
+
       {!user && (
         <div className="gap-2 lg:hidden flex py-5">
           <Link
