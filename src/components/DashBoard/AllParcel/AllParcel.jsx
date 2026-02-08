@@ -1,6 +1,6 @@
 import ParcelRow from './ParcelRow';
 
-export default function AllParcel({ data }) {
+export default function AllParcel({ data, refetch }) {
   return (
     <>
       <div className="overflow-x-auto rounded-box border border-base-content/5 bg-base-100 mt-5">
@@ -20,7 +20,7 @@ export default function AllParcel({ data }) {
           <tbody className="text-sm">
             {/* row 1 */}
             {data.map((d) => (
-              <ParcelRow key={d._id} d={d} />
+              <ParcelRow key={d._id} d={d} refetch={refetch} />
             ))}
           </tbody>
         </table>

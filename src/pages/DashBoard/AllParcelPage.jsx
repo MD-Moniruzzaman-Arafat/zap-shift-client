@@ -8,8 +8,8 @@ import useAxios from '../../hooks/useAxios';
 export default function AllParcelPage() {
   const { user } = useAuth();
   const api = useAxios();
-  const { isPending, isError, data, error } = useQuery({
-    queryKey: ['todos'],
+  const { isPending, isError, data, error, refetch } = useQuery({
+    queryKey: ['parcels'],
     queryFn: async () => {
       const res = await api.get(`/parcel?email=${user.email}`);
       return res.data;
@@ -17,6 +17,9 @@ export default function AllParcelPage() {
   });
   if (isPending) {
     return <Loading />;
+  }
+  if (isError) {
+    return <span>Error: {error.message}</span>;
   }
   return (
     <>
@@ -57,7 +60,7 @@ export default function AllParcelPage() {
             </div>
           </div>
         </div>
-        <AllParcel data={data?.data} />
+        <AllParcel data={data?.data} refetch={refetch} />
       </div>
     </>
   );
