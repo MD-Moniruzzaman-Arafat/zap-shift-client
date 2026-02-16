@@ -5,6 +5,7 @@ import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
+import Payment from '../pages/DashBoard/Payment/Payment';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import PricingPage from '../pages/PricingPage';
@@ -65,12 +66,13 @@ export let router = createBrowserRouter([
     ),
     children: [
       {
-        path: 'parcel',
+        index: true,
+        // path: 'parcel',
         element: <AllParcelPage />,
       },
       {
-        path: 'parcel2',
-        element: <div>Parcel2</div>,
+        path: 'payment/:id',
+        element: <Payment />,
       },
     ],
   },

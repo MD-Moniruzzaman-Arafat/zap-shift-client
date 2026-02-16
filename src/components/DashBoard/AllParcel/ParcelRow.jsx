@@ -1,3 +1,4 @@
+import { Link } from 'react-router';
 import Swal from 'sweetalert2';
 import useAxios from '../../../hooks/useAxios';
 
@@ -31,6 +32,7 @@ export default function ParcelRow({ d, refetch }) {
       console.log(error);
     }
   };
+
   return (
     <>
       <tr className="text-sm">
@@ -41,7 +43,6 @@ export default function ParcelRow({ d, refetch }) {
         <td>{d?.cost}</td>
         <td>{d?.paymentStatus}</td>
         <td className="flex gap-1">
-          <button className="btn btn-sm bg-[#CAEB66]">Pay</button>
           <button className="btn btn-sm bg-[#E7F2F4]">View</button>
           <button
             onClick={handleDeleteParcel}
@@ -49,6 +50,11 @@ export default function ParcelRow({ d, refetch }) {
           >
             Delete
           </button>
+          {d?.paymentStatus === 'Unpaid' && (
+            <Link to={`payment/${d?._id}`} className="btn btn-sm bg-[#CAEB66]">
+              Pay
+            </Link>
+          )}
         </td>
       </tr>
     </>
