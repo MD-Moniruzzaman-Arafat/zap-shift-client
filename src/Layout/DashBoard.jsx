@@ -1,5 +1,6 @@
 import { HiOutlinePresentationChartLine } from 'react-icons/hi2';
-import { Link, NavLink, Outlet } from 'react-router';
+import { MdPayment } from 'react-icons/md';
+import { NavLink, Outlet } from 'react-router';
 
 export default function DashBoard() {
   return (
@@ -47,11 +48,7 @@ export default function DashBoard() {
             <ul className="menu w-full grow">
               {/* List item */}
               <li>
-                <NavLink
-                  to={'parcel'}
-                  className={`is-drawer-close:tooltip is-drawer-close:tooltip-right ${({ isActive }) => (isActive ? 'bg-[#CAEB66]' : '')}`}
-                  data-tip="Homepage"
-                >
+                <NavLink to={'/dash-board'} data-tip="Homepage">
                   {/* Home icon */}
                   {/* <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -73,29 +70,20 @@ export default function DashBoard() {
 
               {/* List item */}
               <li>
-                <Link
-                  to={'parcel2'}
-                  className="is-drawer-close:tooltip is-drawer-close:tooltip-right"
+                <NavLink
+                  to={'my-payment-history'}
+                  className={({ isActive }) =>
+                    `is-drawer-close:tooltip is-drawer-close:tooltip-right ${
+                      isActive ? 'bg-[#CAEB66]' : ''
+                    }`
+                  }
                   data-tip="Settings"
                 >
-                  {/* Settings icon */}
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    strokeLinejoin="round"
-                    strokeLinecap="round"
-                    strokeWidth="2"
-                    fill="none"
-                    stroke="currentColor"
-                    className="my-1.5 inline-block size-4"
-                  >
-                    <path d="M20 7h-9"></path>
-                    <path d="M14 17H5"></path>
-                    <circle cx="17" cy="17" r="3"></circle>
-                    <circle cx="7" cy="7" r="3"></circle>
-                  </svg>
-                  <span className="is-drawer-close:hidden">Settings</span>
-                </Link>
+                  <MdPayment className="text-xl" />
+                  <span className="is-drawer-close:hidden">
+                    My Payment History
+                  </span>
+                </NavLink>
               </li>
             </ul>
           </div>

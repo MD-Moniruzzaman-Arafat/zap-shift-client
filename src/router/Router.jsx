@@ -5,13 +5,14 @@ import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
-import Payment from '../pages/DashBoard/Payment/Payment';
+import MyParcelPaymentHistoryPage from '../pages/DashBoard/MyParcelPaymentHistoryPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import PricingPage from '../pages/PricingPage';
 import RegisterPage from '../pages/RegisterPage';
 import SendParcelPage from '../pages/SendParcelPage';
 import ServicePage from '../pages/ServicePage';
+import Payment from '../provider/Payment/Payment';
 import PrivateRoute from './PrivateRoute';
 
 export let router = createBrowserRouter([
@@ -73,6 +74,10 @@ export let router = createBrowserRouter([
       {
         path: 'payment/:id',
         element: <Payment />,
+      },
+      {
+        path: 'my-payment-history',
+        element: <MyParcelPaymentHistoryPage />,
       },
     ],
   },

@@ -9,7 +9,7 @@ export default function AllParcelPage() {
   const { user } = useAuth();
   const api = useAxios();
   const { isPending, isError, data, error, refetch } = useQuery({
-    queryKey: ['parcels'],
+    queryKey: ['parcels', user.email],
     queryFn: async () => {
       const res = await api.get(`/parcel?email=${user.email}`);
       return res.data;
