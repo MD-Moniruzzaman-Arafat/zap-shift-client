@@ -5,3 +5,12 @@ export function generateTrackingId() {
 
   return `${prefix}-${date}-${random}`;
 }
+
+export const isNewItem = (createdAt) => {
+  const createdTime = new Date(createdAt).getTime();
+  const currentTime = new Date().getTime();
+
+  const diffInMinutes = (currentTime - createdTime) / (1000 * 60);
+
+  return diffInMinutes <= 5; // 5 min
+};
