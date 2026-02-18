@@ -4,7 +4,13 @@ import useAuth from '../../hooks/useAuth';
 import Menu from './Menu';
 
 export default function Navbar() {
-  const { user } = useAuth();
+  const { user, setUser, userLogOut } = useAuth();
+  const handleLogOut = async () => {
+    console.log('logout');
+    await userLogOut();
+    setUser(null);
+  };
+  console.log(user);
   return (
     <>
       <div className="navbar bg-base-100 shadow-sm rounded-2xl">
@@ -45,7 +51,7 @@ export default function Navbar() {
           </ul>
         </div>
         <div className="navbar-end gap-2 ">
-          {user.email ? (
+          {user ? (
             <div className="dropdown dropdown-end">
               <div
                 tabIndex={0}
@@ -73,13 +79,13 @@ export default function Navbar() {
                   <a>{user?.displayName}</a>
                 </li>
                 <li>
-                  <a>Logout</a>
+                  <p onClick={handleLogOut}>Logout</p>
                 </li>
               </ul>
             </div>
           ) : (
             <>
-              <div hidden lg:flex>
+              <div className="hidden lg:flex gap-1">
                 <Link to={'/login'} className="btn rounded-xl px-5">
                   Sign In
                 </Link>

@@ -63,7 +63,7 @@ export default function RegisterPage() {
                         ></path>
                       </g>
                     </svg>
-                    Login with Google
+                    Register with Google
                   </button>
                 </fieldset>
               </div>
