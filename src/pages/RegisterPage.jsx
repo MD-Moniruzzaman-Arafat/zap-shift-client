@@ -1,11 +1,24 @@
-import { Link } from 'react-router';
+import axios from 'axios';
+import { Link, useNavigate } from 'react-router';
 import authImg from '../assets/authImage.png';
 import RegisterForm from '../components/RegisterForm/RegisterForm';
 import useAuth from '../hooks/useAuth';
 
 export default function RegisterPage() {
-  const { user } = useAuth();
+  const { user, googleLogin } = useAuth();
+  const navigate = useNavigate();
   console.log('Registered User:', user);
+  const handleGoogleLogin = async () => {
+    const res = await googleLogin();
+    if (res.user) {
+      await axios.post('http://localhost:3000/users', {
+        email: res.user.email,
+        role: 'user',
+        create_at: new Date().toISOString(),
+      });
+      navigate('/');
+    }
+  };
   return (
     <>
       <div className="container mx-auto">
@@ -35,7 +48,10 @@ export default function RegisterPage() {
                   <div className=" text-center my-5">
                     <span>Or</span>
                   </div>
-                  <button className="btn  bg-white text-black border-[#e5e5e5]">
+                  <button
+                    onClick={handleGoogleLogin}
+                    className="btn  bg-white text-black border-[#e5e5e5]"
+                  >
                     <svg
                       aria-label="Google logo"
                       width="16"

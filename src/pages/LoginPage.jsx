@@ -1,8 +1,25 @@
-import { Link } from 'react-router';
+import axios from 'axios';
+import { Link, useLocation, useNavigate } from 'react-router';
 import authImg from '../assets/authImage.png';
 import LoginForm from '../components/LoginForm/LoginForm';
+import useAuth from '../hooks/useAuth';
 
 export default function LoginPage() {
+  const { googleLogin } = useAuth();
+  const navigate = useNavigate();
+  const location = useLocation();
+  const from = location.state?.from?.pathname || '/';
+  const handleGoogleLogin = async () => {
+    const res = await googleLogin();
+    if (res.user) {
+      await axios.post('http://localhost:3000/users', {
+        email: res.user.email,
+        role: 'user',
+        create_at: new Date().toISOString(),
+      });
+      navigate(from, { replace: true });
+    }
+  };
   return (
     <>
       <div className="container mx-auto">
@@ -32,7 +49,10 @@ export default function LoginPage() {
                   <div className=" text-center my-5">
                     <span>Or</span>
                   </div>
-                  <button className="btn  bg-white text-black border-[#e5e5e5]">
+                  <button
+                    onClick={handleGoogleLogin}
+                    className="btn  bg-white text-black border-[#e5e5e5]"
+                  >
                     <svg
                       aria-label="Google logo"
                       width="16"
