@@ -1,9 +1,11 @@
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
+import useAuth from '../../hooks/useAuth';
 import useAxios from '../../hooks/useAxios';
 
 export default function BeaRiderForm() {
   const api = useAxios();
+  const { user } = useAuth();
   const {
     register,
     handleSubmit,
@@ -12,6 +14,8 @@ export default function BeaRiderForm() {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      name: user?.displayName || '',
+      email: user?.email || '',
       yourRegion: '',
       yourDistrict: '',
     },
@@ -33,7 +37,7 @@ export default function BeaRiderForm() {
           draggable: true,
         });
       }
-      // reset();
+      reset();
     } catch (error) {
       console.error(error);
     }
@@ -43,6 +47,7 @@ export default function BeaRiderForm() {
       <form className="fieldset" onSubmit={handleSubmit(onSubmit)}>
         <label className="label">Your Name</label>
         <input
+          disabled={true}
           {...register('name', { required: 'Name is required' })}
           type="text"
           className="input w-full"
@@ -63,6 +68,7 @@ export default function BeaRiderForm() {
         )}
         <label className="label">Your Email</label>
         <input
+          disabled={true}
           {...register('email', { required: 'Email is required' })}
           type="text"
           className="input w-full"

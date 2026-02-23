@@ -1,7 +1,7 @@
+import { FaMotorcycle } from 'react-icons/fa';
 import { HiOutlinePresentationChartLine } from 'react-icons/hi2';
 import { MdPayment } from 'react-icons/md';
 import { NavLink, Outlet } from 'react-router';
-
 export default function DashBoard() {
   return (
     <>
@@ -83,6 +83,20 @@ export default function DashBoard() {
                   <span className="is-drawer-close:hidden">
                     My Payment History
                   </span>
+                </NavLink>
+              </li>
+              <li>
+                <NavLink
+                  to={'pending-riders'}
+                  className={({ isActive }) =>
+                    `is-drawer-close:tooltip is-drawer-close:tooltip-right ${
+                      isActive ? 'bg-[#CAEB66]' : ''
+                    }`
+                  }
+                  data-tip="Settings"
+                >
+                  <FaMotorcycle className="text-xl" />
+                  <span className="is-drawer-close:hidden"> Riders Info</span>
                 </NavLink>
               </li>
             </ul>

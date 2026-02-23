@@ -6,6 +6,7 @@ import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
 import MyParcelPaymentHistoryPage from '../pages/DashBoard/MyParcelPaymentHistoryPage';
+import RidersInfoPage from '../pages/DashBoard/RidersInfoPage';
 import HomePage from '../pages/HomePage';
 import LoginPage from '../pages/LoginPage';
 import PricingPage from '../pages/PricingPage';
@@ -78,6 +79,10 @@ export let router = createBrowserRouter([
       {
         path: 'my-payment-history',
         element: <MyParcelPaymentHistoryPage />,
+      },
+      {
+        path: 'pending-riders',
+        element: <RidersInfoPage />,
       },
     ],
   },
