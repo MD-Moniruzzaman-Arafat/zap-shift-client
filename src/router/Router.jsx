@@ -5,6 +5,7 @@ import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
+import MakeAdminPage from '../pages/DashBoard/MakeAdminPage';
 import MyParcelPaymentHistoryPage from '../pages/DashBoard/MyParcelPaymentHistoryPage';
 import RidersInfoPage from '../pages/DashBoard/RidersInfoPage';
 import HomePage from '../pages/HomePage';
@@ -83,6 +84,10 @@ export let router = createBrowserRouter([
       {
         path: 'pending-riders',
         element: <RidersInfoPage />,
+      },
+      {
+        path: 'make-admin',
+        element: <MakeAdminPage />,
       },
     ],
   },
