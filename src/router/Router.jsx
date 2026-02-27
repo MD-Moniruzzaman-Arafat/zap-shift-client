@@ -5,6 +5,7 @@ import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
+import Forbidden from '../pages/DashBoard/Forbidden';
 import MakeAdminPage from '../pages/DashBoard/MakeAdminPage';
 import MyParcelPaymentHistoryPage from '../pages/DashBoard/MyParcelPaymentHistoryPage';
 import RidersInfoPage from '../pages/DashBoard/RidersInfoPage';
@@ -15,6 +16,7 @@ import RegisterPage from '../pages/RegisterPage';
 import SendParcelPage from '../pages/SendParcelPage';
 import ServicePage from '../pages/ServicePage';
 import Payment from '../provider/Payment/Payment';
+import AdminRoute from './AdminRoute';
 import PrivateRoute from './PrivateRoute';
 
 export let router = createBrowserRouter([
@@ -47,6 +49,10 @@ export let router = createBrowserRouter([
         element: <PricingPage />,
       },
       {
+        path: 'forbidden',
+        element: <Forbidden />,
+      },
+      {
         path: '/be-a-rider',
         element: <BeaRiderPage />,
       },
@@ -77,6 +83,7 @@ export let router = createBrowserRouter([
         path: 'payment/:id',
         element: <Payment />,
       },
+
       {
         path: 'my-payment-history',
         element: <MyParcelPaymentHistoryPage />,
@@ -87,7 +94,11 @@ export let router = createBrowserRouter([
       },
       {
         path: 'make-admin',
-        element: <MakeAdminPage />,
+        element: (
+          <AdminRoute>
+            <MakeAdminPage />
+          </AdminRoute>
+        ),
       },
     ],
   },
