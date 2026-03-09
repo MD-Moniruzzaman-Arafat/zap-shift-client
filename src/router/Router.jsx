@@ -5,6 +5,7 @@ import AboutUsPage from '../pages/AboutUsPage';
 import BeaRiderPage from '../pages/BeaRiderPage';
 import CoveragePage from '../pages/CoveragePage';
 import AllParcelPage from '../pages/DashBoard/AllParcelPage';
+import AssignParcel from '../pages/DashBoard/AssignParcel';
 import Forbidden from '../pages/DashBoard/Forbidden';
 import MakeAdminPage from '../pages/DashBoard/MakeAdminPage';
 import MyParcelPaymentHistoryPage from '../pages/DashBoard/MyParcelPaymentHistoryPage';
@@ -97,6 +98,14 @@ export let router = createBrowserRouter([
         element: (
           <AdminRoute>
             <MakeAdminPage />
+          </AdminRoute>
+        ),
+      },
+      {
+        path: 'assign-delivery',
+        element: (
+          <AdminRoute>
+            <AssignParcel />
           </AdminRoute>
         ),
       },

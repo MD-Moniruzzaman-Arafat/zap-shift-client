@@ -124,6 +124,23 @@ export default function DashBoard() {
                       </span>
                     </NavLink>
                   </li>
+                  <li>
+                    <NavLink
+                      to={'assign-delivery'}
+                      className={({ isActive }) =>
+                        `is-drawer-close:tooltip is-drawer-close:tooltip-right ${
+                          isActive ? 'bg-[#CAEB66]' : ''
+                        }`
+                      }
+                      data-tip="Settings"
+                    >
+                      <FaMotorcycle className="text-xl" />
+                      <span className="is-drawer-close:hidden">
+                        {' '}
+                        Assign Delivery
+                      </span>
+                    </NavLink>
+                  </li>
                 </>
               )}
             </ul>

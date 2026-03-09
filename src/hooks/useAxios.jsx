@@ -1,5 +1,6 @@
 import axios from 'axios';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
 
 const api = axios.create({
@@ -9,9 +10,10 @@ const api = axios.create({
 });
 
 export default function useAxios() {
-  const { user } = useAuth();
+  const { user, userLogOut } = useAuth();
+  const navigate = useNavigate();
   useEffect(() => {
-    const interceptor = api.interceptors.request.use(
+    const requestInterceptor = api.interceptors.request.use(
       async (config) => {
         if (user) {
           const token = await user.getIdToken(); // Firebase ID Token
@@ -22,10 +24,27 @@ export default function useAxios() {
       (error) => Promise.reject(error)
     );
 
+    const responseInterceptor = api.interceptors.response.use(
+      (response) => response,
+      (error) => {
+        const status = error.response?.status;
+        if (status === 403) {
+          // Handle unauthorized or forbidden responses globally
+          navigate('/forbidden');
+        } else if (status === 401) {
+          // Handle unauthorized responses globally (e.g., token expired)
+          userLogOut();
+          navigate('/login');
+        }
+        return Promise.reject(error);
+      }
+    );
+
     // cleanup (VERY IMPORTANT)
     return () => {
-      api.interceptors.request.eject(interceptor);
+      api.interceptors.request.eject(requestInterceptor);
+      api.interceptors.response.eject(responseInterceptor);
     };
-  }, [user]);
+  }, [user, navigate]);
   return api;
 }
