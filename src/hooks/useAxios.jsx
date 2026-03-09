@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router';
 import useAuth from './useAuth';
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'https://zap-shift-server-blond.vercel.app',
   //   timeout: 1000,
   //   headers: { 'X-Custom-Header': 'foobar' },
 });

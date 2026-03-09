@@ -12,7 +12,7 @@ export default function LoginPage() {
   const handleGoogleLogin = async () => {
     const res = await googleLogin();
     if (res.user) {
-      await axios.post('http://localhost:3000/users', {
+      await axios.post('https://zap-shift-server-blond.vercel.app/users', {
         email: res.user.email,
         role: 'user',
         create_at: new Date().toISOString(),

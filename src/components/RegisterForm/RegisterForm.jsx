@@ -52,11 +52,14 @@ export default function RegisterForm() {
         photoURL: uploadImg,
       });
       if (result.user) {
-        const res = await axios.post('http://localhost:3000/users', {
-          email: data.email,
-          role: 'user',
-          create_at: new Date().toISOString(),
-        });
+        const res = await axios.post(
+          'https://zap-shift-server-blond.vercel.app/users',
+          {
+            email: data.email,
+            role: 'user',
+            create_at: new Date().toISOString(),
+          }
+        );
         console.log(res.data);
         navigate('/');
       }
